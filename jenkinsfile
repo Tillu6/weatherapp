@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'xcodebuild -scheme WeatherApp'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'xcodebuild test -scheme WeatherApp'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy stage'
+                // Add deployment steps here
+            }
+        }
+    }
+}
