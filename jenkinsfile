@@ -3,6 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo "Setting Xcode developer directory"
+                sh 'sudo xcode-select -s /Applications/Xcode.app/Contents/Developer'
                 echo "Building the code using Xcode."
                 sh 'xcodebuild -scheme WeatherApp'
             }
